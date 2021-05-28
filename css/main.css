@@ -21,6 +21,11 @@
 }
 
 :root {
+  /* --color-100: ;
+  --color-200: ;
+  --color-300: ;
+  --color-400: ;
+  --color-500: ; */
   --max-width: 1200px;
   --header-icon-size: 48px;
   --header-btn-size: 32px;
@@ -310,6 +315,7 @@ h6 {
 }
 
 .github-repo-name-link {
+  font-size: 0.94rem;
   text-decoration: none;
   color: rgb(0, 140, 455);
 }

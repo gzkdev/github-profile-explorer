@@ -15,12 +15,18 @@
         </div>
         <h3 class="home-heading">GitMap</h3>
         <p class="home-paragraph">Find github users profile on the web</p>
-        <form class="home-form" autocomplete="off">
+        <form
+          target="_blank"
+          action="./profile.html"
+          method="POST"
+          class="home-form"
+          autocomplete="off"
+        >
           <div class="form-box">
             <input
               type="search"
               name="search"
-              id="search"
+              id="home-search"
               class="form-input-box"
             />
             <button type="submit" class="form-submit-btn">Find User</button>
@@ -49,5 +55,6 @@
       </nav>
     </section>
     <script src="js/all.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
