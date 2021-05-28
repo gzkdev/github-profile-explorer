@@ -169,6 +169,7 @@ h6 {
   min-height: var(--header-icon-size);
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .header-logo-box {
@@ -191,8 +192,8 @@ h6 {
 }
 
 .header-misc-btn {
-  width: var(--header-icon-size);
-  height: var(--header-icon-size);
+  width: var(--header-btn-size);
+  height: var(--header-btn-size);
   color: inherit;
   background: none;
   border-radius: 4px;
@@ -202,8 +203,8 @@ h6 {
 }
 
 .header-misc-btn:focus {
-  background: hsl(0, 0%, 98%);
-  color: #444;
+  border: 1px solid #4e4e4e;
+  /* color: #444; */
 }
 
 .menu-box,
@@ -308,6 +309,11 @@ h6 {
   margin: 8px 0 24px;
 }
 
+.github-repo-name-link {
+  text-decoration: none;
+  color: rgb(0, 140, 455);
+}
+
 .github-repo-stats {
   width: 100%;
   display: flex;
@@ -350,7 +356,7 @@ h6 {
 
 @media (min-width: 768px) {
   .header-ctn {
-    padding: 16px 16px;
+    padding: 8px 16px;
   }
 
   .header-misc-btn {
@@ -425,6 +431,8 @@ h6 {
     outline: none;
     border-radius: 4px;
     padding: 2px 12px;
+    background: none;
+    border: 1px solid #313131;
   }
 
   .header-nav-list {
@@ -438,7 +446,8 @@ h6 {
     display: inline-block;
     padding: 0 12px 0 0;
     color: inherit;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
+    font-weight: 600;
     text-decoration: none;
   }
 }
