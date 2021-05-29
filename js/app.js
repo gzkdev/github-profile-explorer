@@ -34,6 +34,7 @@ const findUserRepos = async (userName) => {
   fetch(`https://api.github.com/users/${userName}/repos`)
     .then(response => response.json())
     .then(data => {
+      // console.log(data);
       for (let i = 0; i < 20; i++) {
         repoCard.innerHTML = `<div class="github-repo-content">
                 <h4 class="github-repo-name">
@@ -47,11 +48,14 @@ const findUserRepos = async (userName) => {
                   </div>
                   <div class="github-repo-stat-box">
                     <span class="far fa-star"></span>&nbsp;${data[i].stargazers_count}
+                  </div>&nbsp;
+                  <div class="github-repo-stat-box">
+                    <span class="fas fa-code-branch"></span>&nbsp;${data[i].forks_count}
                   </div>
                   <div class="github-repo-stat-box">
-                    <span class="github-repo-last-updated"
-                      >Updated 12 days ago</span
-                    >
+                  <span class="github-repo-last-updated"
+                  > <span>Updated<span/> 12 days ago</span
+                  >
                   </div>
                 </div>
               </div>
