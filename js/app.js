@@ -7,28 +7,32 @@ let repoCardsContainer = document.querySelector('.secondary-col');
 let repoCard = document.createElement("div");
 repoCard.className = "github-repo-card";
 
+const userImg = document.querySelectorAll('.user-img');
+
+
 
 const findUser = async (userName) => {
-    fetch(`https://api.github.com/users/${userName}`)
-        .then(response => response.json())
-        .then(data => {
-            const { login, name, bio, public_repos } = data;
-            userBio.innerHTML = bio;
-            userLogin.textContent = login;
-            usercName.textContent = name;
-            userRepoCount.textContent = public_repos;
-        }
-        )
-        // .then(localStorage.clear())
-        .catch(error => console.warn(error))
+  fetch(`https://api.github.com/users/${userName}`)
+    .then(response => response.json())
+    .then(data => {
+      // console.log(data);
+      const { login, name, bio, public_repos, avatar_url } = data;
+      userBio.innerHTML = bio;
+      userLogin.textContent = login;
+      usercName.textContent = name;
+      userRepoCount.textContent = public_repos;
+      userImg.forEach(img => img.setAttribute("src", avatar_url))
+    })
+    // .then(localStorage.clear())
+    .catch(error => console.warn(error))
 }
 
 const findUserRepos = async (userName) => {
-    fetch(`https://api.github.com/users/${userName}/repos`)
-        .then(response => response.json())
-        .then(data => {
-            for (let i = 0; i < 20; i++) {
-                repoCard.innerHTML = `<div class="github-repo-content">
+  fetch(`https://api.github.com/users/${userName}/repos`)
+    .then(response => response.json())
+    .then(data => {
+      for (let i = 0; i < 20; i++) {
+        repoCard.innerHTML = `<div class="github-repo-content">
                 <h4 class="github-repo-name">
                   <a href="${data[i].html_url}" class="github-repo-name-link"
                     >${data[i].name}</a
@@ -51,15 +55,32 @@ const findUserRepos = async (userName) => {
               <button class="github-repo-star">
                 <span class="fas fa-star"></span> Star
               </button>`;
-                repoCardsContainer.appendChild(repoCard.cloneNode(true));
-            }
-        })
-        .catch(error => console.error(error))
+        repoCardsContainer.appendChild(repoCard.cloneNode(true));
+      }
+    })
+    .catch(error => console.error(error))
 }
 
 findUser(searchName);
 findUserRepos(searchName);
 
+
+const navBars = document.querySelectorAll('.sticky-nav-bar');
+
+const stickyToggle = async () => {
+  navBars.forEach(navBar => {
+    const navPosition = navBar.offsetTop;
+    if (window.pageYOffset >= navPosition) {
+      navBar.classList.add('sticky')
+    }
+    if (window.pageYOffset <= navPosition) {
+      navBar.classList.remove('sticky');
+    }
+
+  })
+}
+
+window.addEventListener('scroll', stickyToggle)
 
 // var isInViewport = function (elem) {
 //     var bounding = elem.getBoundingClientRect();
