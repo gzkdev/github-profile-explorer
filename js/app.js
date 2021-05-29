@@ -2,7 +2,8 @@ const searchName = JSON.parse(localStorage.getItem("username"));
 const userBio = document.querySelector('.github-user-about');
 const userLogin = document.querySelector('.github-name');
 const usercName = document.querySelector('.github-username');
-const userRepoCount = document.querySelector('.github-repo-number');
+const userRepoCount = document.querySelector('.github-repo-number.desktop');
+const userRepoCountMobile = document.querySelector('.github-repo-number.mobile');
 let repoCardsContainer = document.querySelector('.secondary-col');
 let repoCard = document.createElement("div");
 repoCard.className = "github-repo-card";
@@ -22,6 +23,7 @@ const findUser = async (userName) => {
       userLogin.textContent = login;
       usercName.textContent = name;
       userRepoCount.textContent = public_repos;
+      userRepoCountMobile.textContent = public_repos;
       userImg.forEach(img => img.setAttribute("src", avatar_url))
     })
     // .then(localStorage.clear())
