@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GitMap - A minimal github profile finder app</title>
+    <title>GitMapp - A minimal github profile finder app</title>
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -13,9 +13,14 @@
         <div class="home-logo-box">
           <span class="fab fa-github"></span>
         </div>
-        <h3 class="home-heading">GitMap</h3>
+        <h3 class="home-heading">GitMapp</h3>
         <p class="home-paragraph">Find github users profile on the web</p>
-        <form class="home-form" autocomplete="off">
+        <form
+          action="./profile.html"
+          method="POST"
+          class="home-form"
+          autocomplete="off"
+        >
           <div class="form-box">
             <input
               type="search"

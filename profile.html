@@ -57,33 +57,37 @@
         </div>
       </div>
     </header>
-    <section class="sticky-nav-bar desktop">
-      <nav class="nav">
-        <div class="nav-ctn">
-          <div class="nav-bar-align"></div>
-          <ul class="nav-list desktop">
-            <li class="nav-list-item">
-              <a href="#" class="nav-link"
-                ><span class="fas fa-book"></span>&nbsp;&nbsp;Repositories</a
-              >
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </section>
     <main class="main">
+      <section class="sticky-nav-bar desktop">
+        <nav class="nav">
+          <div class="nav-ctn">
+            <div class="nav-bar-align"></div>
+            <ul class="nav-list desktop">
+              <li class="nav-list-item">
+                <a href="#" class="nav-link"
+                  ><span class="fas fa-book"></span>&nbsp;&nbsp;Repositories</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </section>
       <div class="main-ctn">
         <div class="primary-col">
           <div class="github-user-card">
             <div class="github-img-box"></div>
             <div class="github-user-name-ctn">
-              <h3 class="github-username">Bobby</h3>
-              <span class="github-name">ezihe-godswill</span>
+              <h3 class="github-username">
+                <!-- Bobby -->
+              </h3>
+              <span class="github-name">
+                <!-- ezihe-godswill -->
+              </span>
             </div>
           </div>
           <p class="github-user-about">
-            Frontend software engineer, pharmacist in-view, blockchain
-            enthusiast. Loves coca-cola.
+            <!-- Frontend software engineer, pharmacist in-view, blockchain
+            enthusiast. Loves coca-cola. -->
           </p>
         </div>
         <div class="sticky-nav-bar mobile">
@@ -91,163 +95,37 @@
             <ul class="nav-list">
               <li class="nav-list-item">
                 <a href="#" class="nav-link"
-                  ><span class="fas fa-book"></span>&nbsp;&nbsp;Repositories</a
-                >
+                  ><span class="fas fa-book"></span>&nbsp;&nbsp;Repositories
+                  <span class="github-repo-no"></span
+                ></a>
               </li>
             </ul>
           </nav>
         </div>
         <div class="secondary-col">
-          <div class="github-repo-card">
-            <div class="github-repo-content">
-              <h4 class="github-repo-name">
-                <a href="#" class="github-repo-name-link"
-                  >github-profile-explorer</a
-                >
-              </h4>
-              <div class="github-repo-stats">
-                <div class="github-repo-stat-box">
-                  <span class="fas fa-circle"></span>&nbsp;HTML
+          <!-- <div class="github-repo-content">
+                  <h4 class="github-repo-name">
+                    <a href="${data[i].html_url}" class="github-repo-name-link"
+                      >${data[i].name}</a
+                    >
+                  </h4>
+                  <div class="github-repo-stats">
+                    <div class="github-repo-stat-box">
+                      <span class="fas fa-circle"></span>&nbsp;HTML
+                    </div>
+                    <div class="github-repo-stat-box">
+                      <span class="far fa-star"></span>&nbsp;${data[i].stargazers_count}
+                    </div>
+                    <div class="github-repo-stat-box">
+                      <span class="github-repo-last-updated"
+                        >Updated 12 days ago</span
+                      >
+                    </div>
+                  </div>
                 </div>
-                <div class="github-repo-stat-box">
-                  <span class="far fa-star"></span>&nbsp;4
-                </div>
-                <div class="github-repo-stat-box">
-                  <span class="github-repo-last-updated"
-                    >Updated 12 days ago</span
-                  >
-                </div>
-              </div>
-            </div>
-            <button class="github-repo-star">
-              <span class="fas fa-star"></span> Star
-            </button>
-          </div>
-          <div class="github-repo-card">
-            <div class="github-repo-content">
-              <h4 class="github-repo-name">
-                <a href="#" class="github-repo-name-link"
-                  >github-profile-explorer</a
-                >
-              </h4>
-              <div class="github-repo-stats">
-                <div class="github-repo-stat-box">
-                  <span class="fas fa-circle"></span>&nbsp;HTML
-                </div>
-                <div class="github-repo-stat-box">
-                  <span class="far fa-star"></span>&nbsp;4
-                </div>
-                <div class="github-repo-stat-box">
-                  <span class="github-repo-last-updated"
-                    >Updated 12 days ago</span
-                  >
-                </div>
-              </div>
-            </div>
-            <button class="github-repo-star">
-              <span class="fas fa-star"></span> Star
-            </button>
-          </div>
-          <div class="github-repo-card">
-            <div class="github-repo-content">
-              <h4 class="github-repo-name">
-                <a href="#" class="github-repo-name-link"
-                  >github-profile-explorer</a
-                >
-              </h4>
-              <div class="github-repo-stats">
-                <div class="github-repo-stat-box">
-                  <span class="fas fa-circle"></span>&nbsp;HTML
-                </div>
-                <div class="github-repo-stat-box">
-                  <span class="far fa-star"></span>&nbsp;4
-                </div>
-                <div class="github-repo-stat-box">
-                  <span class="github-repo-last-updated"
-                    >Updated 12 days ago</span
-                  >
-                </div>
-              </div>
-            </div>
-            <button class="github-repo-star">
-              <span class="fas fa-star"></span> Star
-            </button>
-          </div>
-          <div class="github-repo-card">
-            <div class="github-repo-content">
-              <h4 class="github-repo-name">
-                <a href="#" class="github-repo-name-link"
-                  >github-profile-explorer</a
-                >
-              </h4>
-              <div class="github-repo-stats">
-                <div class="github-repo-stat-box">
-                  <span class="fas fa-circle"></span>&nbsp;HTML
-                </div>
-                <div class="github-repo-stat-box">
-                  <span class="far fa-star"></span>&nbsp;4
-                </div>
-                <div class="github-repo-stat-box">
-                  <span class="github-repo-last-updated"
-                    >Updated 12 days ago</span
-                  >
-                </div>
-              </div>
-            </div>
-            <button class="github-repo-star">
-              <span class="fas fa-star"></span> Star
-            </button>
-          </div>
-          <div class="github-repo-card">
-            <div class="github-repo-content">
-              <h4 class="github-repo-name">
-                <a href="#" class="github-repo-name-link"
-                  >github-profile-explorer</a
-                >
-              </h4>
-              <div class="github-repo-stats">
-                <div class="github-repo-stat-box">
-                  <span class="fas fa-circle"></span>&nbsp;HTML
-                </div>
-                <div class="github-repo-stat-box">
-                  <span class="far fa-star"></span>&nbsp;4
-                </div>
-                <div class="github-repo-stat-box">
-                  <span class="github-repo-last-updated"
-                    >Updated 12 days ago</span
-                  >
-                </div>
-              </div>
-            </div>
-            <button class="github-repo-star">
-              <span class="fas fa-star"></span> Star
-            </button>
-          </div>
-          <div class="github-repo-card">
-            <div class="github-repo-content">
-              <h4 class="github-repo-name">
-                <a href="#" class="github-repo-name-link"
-                  >github-profile-explorer</a
-                >
-              </h4>
-              <div class="github-repo-stats">
-                <div class="github-repo-stat-box">
-                  <span class="fas fa-circle"></span>&nbsp;HTML
-                </div>
-                <div class="github-repo-stat-box">
-                  <span class="far fa-star"></span>&nbsp;4
-                </div>
-                <div class="github-repo-stat-box">
-                  <span class="github-repo-last-updated"
-                    >Updated 12 days ago</span
-                  >
-                </div>
-              </div>
-            </div>
-            <button class="github-repo-star">
-              <span class="fas fa-star"></span> Star
-            </button>
-          </div>
+                <button class="github-repo-star">
+                  <span class="fas fa-star"></span> Star
+                </button> -->
         </div>
       </div>
     </main>
