@@ -1,22 +1,26 @@
 const searchName = JSON.parse(localStorage.getItem("username"));
+const userBio = document.querySelector('.github-user-about');
+const userLogin = document.querySelector('.github-name');
+const usercName = document.querySelector('.github-username');
+const userRepoCount = document.querySelector('.github-repo-number');
 let repoCardsContainer = document.querySelector('.secondary-col');
 let repoCard = document.createElement("div");
 repoCard.className = "github-repo-card";
+
 
 const findUser = async (userName) => {
     fetch(`https://api.github.com/users/${userName}`)
         .then(response => response.json())
         .then(data => {
-            // console.log(data)
-            const { login, name, bio, avatar_url, followers, public_repos } = data;
-            const userBio = document.querySelector('.github-user-about').innerHTML = bio;
-            const userLogin = document.querySelector('.github-name').textContent = login;
-            const usercName = document.querySelector('.github-username').textContent = name;
-            const userRepoCount = document.querySelector('.github-repo-no').textContent = public_repos;
+            const { login, name, bio, public_repos } = data;
+            userBio.innerHTML = bio;
+            userLogin.textContent = login;
+            usercName.textContent = name;
+            userRepoCount.textContent = public_repos;
         }
         )
         // .then(localStorage.clear())
-        .catch(error => alert(error))
+        .catch(error => console.warn(error))
 }
 
 const findUserRepos = async (userName) => {
@@ -24,7 +28,6 @@ const findUserRepos = async (userName) => {
         .then(response => response.json())
         .then(data => {
             for (let i = 0; i < 20; i++) {
-                console.log(data[i]);
                 repoCard.innerHTML = `<div class="github-repo-content">
                 <h4 class="github-repo-name">
                   <a href="${data[i].html_url}" class="github-repo-name-link"
@@ -56,3 +59,21 @@ const findUserRepos = async (userName) => {
 
 findUser(searchName);
 findUserRepos(searchName);
+
+
+// var isInViewport = function (elem) {
+//     var bounding = elem.getBoundingClientRect();
+//     return (
+//         bounding.top >= 0 &&
+//         bounding.left >= 0
+//     );
+// };
+
+
+// let stickyNavs = document.querySelectorAll('.sticky-nav-bar ');
+
+// stickyNavs.forEach(nav => {
+//     if (isInViewport(nav)) {
+//         nav.classList.toggle('fixed');
+//     }
+// })
