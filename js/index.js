@@ -1,6 +1,6 @@
 const form = document.querySelector('.home-form');
 
-form.addEventListener('submit', handleSubmit)
+form.addEventListener('submit', handleSubmit())
 
 function handleSubmit(e) {
     e.preventDefault();
