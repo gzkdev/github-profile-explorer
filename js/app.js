@@ -6,6 +6,7 @@ const userRepoCount = document.querySelector('.github-repo-number');
 let repoCardsContainer = document.querySelector('.secondary-col');
 let repoCard = document.createElement("div");
 repoCard.className = "github-repo-card";
+const navBars = document.querySelectorAll('.sticky-nav-bar');
 
 const userImg = document.querySelectorAll('.user-img');
 
@@ -24,7 +25,7 @@ const findUser = async (userName) => {
       userImg.forEach(img => img.setAttribute("src", avatar_url))
     })
     // .then(localStorage.clear())
-    .catch(error => console.warn(error))
+    .catch(error => console.log(error))
 }
 
 const findUserRepos = async (userName) => {
@@ -58,14 +59,8 @@ const findUserRepos = async (userName) => {
         repoCardsContainer.appendChild(repoCard.cloneNode(true));
       }
     })
-    .catch(error => console.error(error))
+    .catch(error => console.log(error))
 }
-
-findUser(searchName);
-findUserRepos(searchName);
-
-
-const navBars = document.querySelectorAll('.sticky-nav-bar');
 
 const stickyToggle = async () => {
   navBars.forEach(navBar => {
@@ -80,21 +75,7 @@ const stickyToggle = async () => {
   })
 }
 
+findUser(searchName);
+findUserRepos(searchName);
 window.addEventListener('scroll', stickyToggle)
 
-// var isInViewport = function (elem) {
-//     var bounding = elem.getBoundingClientRect();
-//     return (
-//         bounding.top >= 0 &&
-//         bounding.left >= 0
-//     );
-// };
-
-
-// let stickyNavs = document.querySelectorAll('.sticky-nav-bar ');
-
-// stickyNavs.forEach(nav => {
-//     if (isInViewport(nav)) {
-//         nav.classList.toggle('fixed');
-//     }
-// })
