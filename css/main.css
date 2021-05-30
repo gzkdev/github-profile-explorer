@@ -116,8 +116,6 @@ h6 {
   width: 100%;
   max-width: 320px;
   margin: 24px auto 0 auto;
-  border: 2px solid var(--color-500);
-  border-radius: 8px;
 }
 
 .form-box {
@@ -141,7 +139,10 @@ h6 {
 .form-input-box {
   flex: 1 auto;
   padding: 4px 16px;
-  border-radius: 8px 0 0 8px;
+  border-radius: 16px 0 0 16px;
+  border-left: 2px solid var(--color-500);
+  border-top: 2px solid var(--color-500);
+  border-bottom: 2px solid var(--color-500);
 }
 .form-submit-btn {
   font-weight: 600;
@@ -149,6 +150,7 @@ h6 {
   padding: 4px 8px;
   background: var(--color-500);
   color: var(--color-200);
+  border-radius: 0 16px 16px 0;
 }
 
 /* .home-nav {
@@ -360,6 +362,11 @@ h6 {
 .github-repo-name-link {
   text-decoration: none;
   color: var(--color-500);
+}
+
+.github-repo-description {
+  margin: 8px 0;
+  font-size: 0.72rem;
 }
 
 .github-repo-stats {
