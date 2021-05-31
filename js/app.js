@@ -15,7 +15,7 @@ const githubRepoDescription = document.querySelector('.github-repo-description')
 
 const baseUrl = "https://api.github.com/graphql";
 const openSource = {
-  githubConvertedToken: "g${{ secrets.GRAPHQLTOKEN }}",
+  githubConvertedToken: "${{ secrets.GRAPHQLTOKEN }}",
   githubUserName: searchName,
 };
 const headers = {
