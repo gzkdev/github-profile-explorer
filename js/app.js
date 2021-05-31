@@ -12,17 +12,16 @@ const githubLink = document.querySelector('.github-repo-name-link');
 const githubForkCount = document.querySelector('.github-repo-forks');
 const githubRepoDescription = document.querySelector('.github-repo-description');
 
-console.log(searchName);
 
 const baseUrl = "https://api.github.com/graphql";
-const token = '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';
+// const token = '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';
 const openSource = {
-  githubConvertedToken: "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",
+  githubConvertedToken: "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",
   githubUserName: searchName,
 };
 const headers = {
   "Content-Type": "application/json",
-  Authorization: "bearer " + openSource.githubConvertedToken,
+  Authorization: "bearer " + openSource.githubConvertedToken
 };
 
 
@@ -45,16 +44,17 @@ const body = {
           isFork
           name
           url
+          stargazers {
+            totalCount
+          }
         }
         edges {
           cursor
         }
       }
     }
-  }
-
-  `
-}
+  } `
+};
 
 
 fetch(baseUrl, {
@@ -73,7 +73,7 @@ fetch(baseUrl, {
     userImg.forEach(img => img.setAttribute("src", avatarUrl));
 
     for (let i = 0; i < nodes.length; i++) {
-      // console.log(nodes[i])
+      console.log(nodes[i])
       githubLink.innerHTML = nodes[i].name;
       githubLink.setAttribute('href', nodes[i].url);
       githubForkCount.innerHTML = nodes[i].forkCount;
@@ -98,6 +98,3 @@ const stickyToggle = async () => {
 }
 
 window.addEventListener('scroll', stickyToggle)
-
-
-
