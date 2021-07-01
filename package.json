@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,7 @@
   "bugs": {
     "url": "https://github.com/ezihe-godswill/github-profile-explorer/issues"
   },
-  "homepage": "https://github.com/ezihe-godswill/github-profile-explorer#readme"
+  "homepage": "https://github.com/ezihe-godswill/github-profile-explorer#readme",
+  "dependencies": {},
+  "devDependencies": {}
 }
