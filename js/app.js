@@ -1,13 +1,54 @@
+// Global variables
 const searchName = JSON.parse(localStorage.getItem("username"));
-
 const userName = document.querySelector('.user-name');
 const userLogin = document.querySelector('.user-login');
 const userFollowers = document.querySelector('.followers');
 const userRepositories = document.querySelector('.repositories');
 const userFollowing = document.querySelector('.following');
 const userProfileImage = document.querySelector('.header-image');
+const repoCardsContainer = document.querySelector('.cards-ctn');
+const repoCard = document.createElement('div');
 
 
+const CreateRepoCards = (data) => {
+  for (let i = 0; i < data.length; i++) {
+    repoCard.className = 'card';
+    repoCard.innerHTML = `
+      <header class="card-header">
+        <div class="card-repo-name">
+          <a href="${data[i].html_url}" class="card-repo-link">${data[i].name}</a>
+        </div>
+        <div class="card-repo-text-ctn">
+          <span class="card-repo-details">
+          ${data[i].description}
+          </span>
+        </div>
+      </header>
+      <footer class="card-footer">
+        <div class="card-repo-stats">
+          <div class="card-repo-stats-box">
+            <span class="far fa-star"></span>&nbsp;<span
+              class="card-repo-star-count"
+              >${data[i].forks_count}</span
+            >
+          </div>
+          <div class="card-repo-stats-box">
+            <span class="fas fa-code-branch"></span>&nbsp;<span
+              class="card-repo-star-count"
+              >${data[i].stargazers_count}</span
+            >
+          </div>
+          <div class="card-repo-stats-box">
+            <span class="fas fa-circle"></span>&nbsp;<span
+              class="card-repo-star-count"
+              >${data[i].language}</span
+            >
+          </div>
+        </div>
+      </footer>`;
+    repoCardsContainer.appendChild(repoCard.cloneNode(true));
+  }
+}
 
 const findUser = async (userId) => {
   fetch(`https://api.github.com/users/${userId}`)
@@ -32,8 +73,17 @@ const findUserRepos = async (userName) => {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      // for (let i = 0; i < 20; i++) {
-      //   repoCard.innerHTML = `<div class="github-repo-content">
+      CreateRepoCards(data)
+    })
+    .catch(error => console.log(error))
+}
+
+findUser(searchName);
+findUserRepos(searchName);
+
+
+
+{/* <div class="github-repo-content"> */ }
       //           <h4 class="github-repo-name">
       //             <a href="${data[i].html_url}" class="github-repo-name-link"
       //               >${data[i].name}</a
@@ -58,112 +108,4 @@ const findUserRepos = async (userName) => {
       //         </div>
       //         <button class="github-repo-star">
       //           <span class="fas fa-star"></span> Star
-      //         </button>`;
-      //   repoCardsContainer.appendChild(repoCard.cloneNode(true));
-      // }
-    })
-    .catch(error => console.log(error))
-}
-
-findUser(searchName);
-findUserRepos(searchName);
-
-// const searchName = JSON.parse(localStorage.getItem("username"));
-// const userBio = document.querySelector('.github-user-about');
-// const userLogin = document.querySelector('.github-name');
-// const usercName = document.querySelector('.github-username');
-// const userRepoCount = document.querySelector('.github-repo-number.desktop');
-// const userRepoCountMobile = document.querySelector('.github-repo-number.mobile');
-// const repoCardsContainer = document.querySelector('.secondary-col');
-// const repoCard = document.querySelector(".github-repo-card");
-// const navBars = document.querySelectorAll('.sticky-nav-bar');
-// const userImg = document.querySelectorAll('.user-img');
-// const githubLink = document.querySelector('.github-repo-name-link');
-// const githubForkCount = document.querySelector('.github-repo-forks');
-// const githubRepoDescription = document.querySelector('.github-repo-description');
-
-
-// const baseUrl = "https://api.github.com/graphql";
-// const openSource = {
-//   githubConvertedToken: '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',
-//   githubUserName: searchName,
-// };
-// const headers = {
-//   "Content-Type": "application/json",
-//   Authorization: "bearer " + openSource.githubConvertedToken
-// };
-
-
-// const body = {
-//   "query": `
-//   {
-//     user(login: "${searchName}") {
-//       avatarUrl
-//       followers {
-//         totalCount
-//       }
-//       bio
-//       name
-//       login
-//       repositories(last: 20, ownerAffiliations: [OWNER]) {
-//         totalCount
-//         nodes {
-//           description
-//           forkCount
-//           isFork
-//           name
-//           url
-//           stargazers {
-//             totalCount
-//           }
-//         }
-//         edges {
-//           cursor
-//         }
-//       }
-//     }
-//   } `
-// };
-
-
-// fetch(baseUrl, {
-//   method: "POST",
-//   headers: headers,
-//   body: JSON.stringify(body)
-// })
-//   .then(response => (response.json()))
-//   .then(data => {
-//     const { data: { user: { login, name, bio, followers: { totalCount: followerCount }, avatarUrl, repositories: { totalCount, nodes } } } } = data;
-//     userBio.innerHTML = bio;
-//     userLogin.textContent = login;
-//     usercName.textContent = name;
-//     userRepoCount.textContent = totalCount;
-//     userRepoCountMobile.textContent = totalCount;
-//     userImg.forEach(img => img.setAttribute("src", avatarUrl));
-
-//     for (let i = 0; i < nodes.length; i++) {
-//       // console.log(nodes[i])
-//       githubLink.innerHTML = nodes[i].name;
-//       githubLink.setAttribute('href', nodes[i].url);
-//       githubForkCount.innerHTML = nodes[i].forkCount;
-//       githubRepoDescription.innerHTML = nodes[i].description;
-//       repoCardsContainer.appendChild(repoCard.cloneNode(true));
-//     }
-//   })
-//   .catch(error => console.log(JSON.stringify(error)))
-
-
-// const stickyToggle = async () => {
-//   navBars.forEach(navBar => {
-//     const navPosition = navBar.offsetTop;
-//     if (window.pageYOffset >= navPosition) {
-//       navBar.classList.add('sticky')
-//     }
-//     if (window.pageYOffset <= navPosition) {
-//       navBar.classList.remove('sticky');
-//     }
-
-//   })
-// }
-
-// window.addEventListener('scroll', stickyToggle)
+      //         </button>
