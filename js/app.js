@@ -80,32 +80,3 @@ const findUserRepos = async (userName) => {
 
 findUser(searchName);
 findUserRepos(searchName);
-
-
-
-{/* <div class="github-repo-content"> */ }
-      //           <h4 class="github-repo-name">
-      //             <a href="${data[i].html_url}" class="github-repo-name-link"
-      //               >${data[i].name}</a
-      //             >
-      //           </h4>
-      //           <div class="github-repo-stats">
-      //             <div class="github-repo-stat-box">
-      //               <span class="fas fa-circle"></span>&nbsp;HTML
-      //             </div>
-      //             <div class="github-repo-stat-box">
-      //               <span class="far fa-star"></span>&nbsp;${data[i].stargazers_count}
-      //             </div>&nbsp;
-      //             <div class="github-repo-stat-box">
-      //               <span class="fas fa-code-branch"></span>&nbsp;${data[i].forks_count}
-      //             </div>
-      //             <div class="github-repo-stat-box">
-      //             <span class="github-repo-last-updated"
-      //             > <span>Updated<span/> 12 days ago</span
-      //             >
-      //             </div>
-      //           </div>
-      //         </div>
-      //         <button class="github-repo-star">
-      //           <span class="fas fa-star"></span> Star
-      //         </button>
